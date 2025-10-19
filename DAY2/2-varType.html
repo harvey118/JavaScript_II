@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 更多產生特殊值的方式
+        console.log(10 / 0);      // Infinity
+        console.log(-10 / 0);     // -Infinity
+        console.log(0 / 0);       // NaN
+        console.log(Math.sqrt(-1)); // NaN（負數開平方根）
+
+        // 三元運算子
+        const age = 25;                 // 整數
+        const message = (age >= 18) ? 'Adult' : 'Minor';
+        console.log(message);          // 'Adult'
+
+        // 三元運算子(巢狀)
+        const grade = 89;
+        const level = (grade >= 90) ? 'A' :
+            (grade >= 80) ? 'B' :
+                (grade >= 70) ? 'C' :
+                    (grade >= 60) ? 'D' : 'F';
+        console.log(level);           // 'B'
+
+
+        //switch 範例
+        const num = 16;
+        switch (true) {
+            case (num >= 18):
+                console.log('限制級');
+                break;
+            case (num >= 12):
+                console.log('輔導級');
+                break;
+            case (num >= 6):
+                console.log('普遍級');
+                break;
+            default:
+                console.log('未知級');
+                break;
+        }
+
+        //switch 分組 case
+        let soc = 'B';
+        switch (soc) {
+            case 'A':
+            case 'A+':
+                console.log("優秀");
+                break;
+            case 'B':
+            case 'B+':
+                console.log("良好");
+                break;
+            case 'C':
+                console.log("普通");
+                break;
+            default:
+                console.log("需要加油");
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //for 迴圈範例
+        for (let i = 1; i <= 5; i++) {
+            console.log(`目前是for第 ${i} 次迴圈`);
+        }
+
+        //while 迴圈範例
+        let j = 1;
+        while (j <= 5) {
+            console.log(`目前是while第 ${j} 次迴圈`);
+            j++;
+        }
+
+        //do-while 迴圈範例
+        let k = 1;
+        do {
+            console.log(`目前是do-while第 ${k} 次迴圈`);
+            k++;
+        } while (k <= 5);
+
+        //99乘法表 巢狀迴圈
+        for (let m = 2; m < 10; m++) {
+            let iMixStr = '';
+            for (let n = 1; n < 10; n++) {
+                iMixStr += `${m} x ${n} = ${m * n}\t`;
+            }
+            console.log(iMixStr);
+        }
+
+        //使用for迴圈 印出1到100的奇數
+        for (let x = 1; x <= 100; x += 2) {
+            console.log(x);
+        }
+
+        //使用 while 迴圈計算 1 到 100 的總和
+        let sum = 0;
+        let y = 1;
+        while (y <= 100) {
+            sum += y;
+            y++;
+        }
+        console.log(`1 到 100 的總和是 ${sum}`);
+
+        //使用巢狀迴圈印出一個 5×5 的星號方陣
+        let starStr = '';
+        for (let p = 1; p <= 5; p++) {
+            for (let q = 1; q <= 5; q++) {
+                starStr += '* ';
+            }
+            starStr += '\n';
+        }
+        console.log(starStr);
+        
+    </script>
+</body>
+
+</html>

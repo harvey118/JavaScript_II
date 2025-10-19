@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <script>
+        let a = 100;
+        let b = 'harvey';
+        //let 聲明變數  (可以改變的數值)
+
+        const c = 500;
+        const k = 'harvey';
+        //const 聲明常數  (不可以改變的數值)
+
+        let studentNewName = 'Mary';
+        //駝峰式命名法
+
+        console.log('studentNewName =', studentNewName);
+
+        //變數作用域
+        let gVar = 'global variable';
+
+        {
+            let gVar = 'local variable';
+            let lVar = 'local variable';
+            console.log('區域內讀取全域變數 gVar =', gVar); //local variable
+            console.log('區域內讀取區域變數 lVar =', lVar); //local variable
+        }
+
+        console.log('gVar =', gVar);    //global variable
+        console.log('lVar =', lVar);    //Uncaught ReferenceError: lVar is not defined    
+
+    </script>
+
+</body>
+
+</html>

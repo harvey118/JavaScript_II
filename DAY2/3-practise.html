@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //question 1: 分數等級判斷
+        const score = 95;
+        let level;
+        if (score >= 90) {
+            level = 'A';
+        } else if (score >= 80 && score < 90) {
+            level = 'B';
+        } else if (score >= 70 && score < 80) {
+            level = 'C';
+        } else if (score >= 60 && score < 70) {
+            level = 'D';
+        } else {
+            level = 'F';
+        }
+        console.log(`分數 ${score} 的等級是: ${level}`);
+
+
+        //question 2: 判斷閏年
+        const year = 2000;
+        let bool;
+
+        if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
+            bool = true;
+        } else {
+            bool = false;
+        }
+        console.log(`${year} 年是閏年:${bool}`);
+
+
+        //question 3: BMI 判斷
+        const height = 170;
+        const weight = 70;
+        const bmi = (weight / ((height / 100) ** 2)).toFixed(1);
+        let status;
+        switch (true) {
+            case (bmi < 18.5):
+                status = '過輕';
+                break;
+            case (bmi >= 18.5 && bmi < 25):
+                status = '正常';
+                break;
+            case (bmi >= 25 && bmi < 30):
+                status = '過重';
+                break;
+            default:
+                status = '肥胖';
+                break;
+        }
+
+        console.log(`身高 ${height} cm，體重 ${weight}kg，BMI ${bmi}，體重狀態：${status}`);
+
+    </script>
+</body>
+
+</html>
