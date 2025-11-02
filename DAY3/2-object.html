@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const person = {
+            name: "John",
+            age: 30,
+            city: "New York"
+        };
+
+        console.log(person.name); // John
+        console.log(person["age"]); // 30
+
+        person.age = 31; // 修改屬性值
+        delete person.city; // 刪除屬性
+
+        console.log(person);
+
+
+        let user = {
+            name: "小明",
+            age: 25
+        };
+
+        // 傳統方式：檢查屬性是否存在
+        if (user.email) {
+            console.log("電子郵件：" + user.email);
+        } else {
+            console.log("沒有電子郵件");
+        }
+
+        // ES6 可選鏈運算子（?.）- 避免提報錯誤
+        // ?? 代表 nullish 合併運算子，當左邊的值是 null 或 undefined 時，回傳右邊的值
+        console.log(user.email?.toUpperCase() ?? "沒有電子郵件"); // undefined（不會報錯）
+
+
+        Object.keys(user);     //['name', 'age']
+        Object.values(user);   //['小明', 25]
+
+
+    </script>
+</body>
+
+</html>

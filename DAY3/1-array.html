@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const a1 = 1;
+        const a2 = 2;
+        const a3 = 3;
+        const arr = [a1, a2, a3];
+        const arr2 = [];                 //空陣列
+        const arr3 = new Array();        //空陣列
+        const arr4 = new Array(3);       //長度為3的陣列 **重要**
+        const arr5 = new Array(1, 2, 3); //包含1,2,3的陣列
+        const arr6 = new Array('1');     //包含字串'1'的陣列
+
+        const bry1 = [1, 2, 3];
+        const bry2 = ['1', '2', '3'];
+        const bry3 = bry2;               //array是一個物件，指向同一個記憶體位置，因此bry3改變，bry2也會跟著改變
+
+
+        const cry1 = ["蘋果", "香蕉", "橘子", 229];
+        console.log(cry1[0]); //蘋果
+        console.log(cry1[1]); //香蕉
+        console.log(cry1[2]); //橘子
+        console.log(cry1[3]); //229
+        console.log(cry1[4]); //undefined
+
+        cry1[1] = "西瓜";      //修改陣列中的值
+        console.log(cry1[1]); //西瓜
+        console.log(cry1);    //["蘋果", "西瓜", "橘子", 229]
+
+        //const cry1 = [1, 2, 3]; 
+        //cry1 = [4, 5, 6];  //錯誤，const宣告的變數無法重新指向新的記憶體位置
+        //因此const的array 只能修改陣列中的值，不能重新賦值整個陣列
+        //let cry1 = [1, 2, 3];
+        //cry1 = [4, 5, 6];  //正確，let宣告的變數可以重新指向新的記憶體位置
+
+        console.clear();
+
+
+        //method1: 指定fn
+        function myPrint(value) {
+            console.log(value);
+        }
+        cry1.forEach(myPrint);
+
+        //method2: 匿名函式
+        cry1.forEach(function (value) {
+            console.log(value);
+        });
+
+        //method3: 箭頭函式
+        cry1.forEach(value => console.log(value));
+
+        console.clear();
+
+        const dry1 = ["蘋果", "香蕉", "橘子", 229, 228];
+
+        const ansIs = dry1.indexOf("蘋果"); //0                     //尋找指定元素在陣列中的位置，找不到回傳-1
+        const ansIs2 = dry1.includes("香蕉"); //true                //判斷陣列中是否包含指定元素，回傳布林值
+        const ansIs3 = dry1.lastIndexOf("橘子"); //2                //尋找指定元素在陣列中的最後一個位置
+        const ansIs4 = dry1.toString(); //蘋果,香蕉,橘子,229,228    //array轉字串，預設以逗號分隔
+        const ansIs5 = dry1.join(" | "); //蘋果|香蕉|橘子|229|228   //array轉字串，可自訂分隔符號
+
+    </script>
+</body>
+
+</html>

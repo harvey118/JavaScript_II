@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function showWelcomeMessage() {
+            console.log("歡迎來到我的網站！");
+            console.log("這是一個簡單的 JavaScript 範例。");
+            console.log("希望你會喜歡這個範例！");
+        }
+        showWelcomeMessage();
+
+        function showWelcomeMessage1(name = "訪客") {
+            console.log("歡迎來到" + name + "的網站！");
+            console.log("這是一個簡單的 JavaScript 範例。");
+            console.log("希望你會喜歡這個範例！");
+        }
+        showWelcomeMessage1("harvey");
+        showWelcomeMessage1();
+
+        function total(ary) {
+            let sum = 0;
+            for (let i = 0; i < ary.length; i++) {
+                sum += ary[i];
+            }
+            return sum;
+        }
+        console.log(total([10, 20, 30])); // 60
+
+
+        function total1(ary) {
+            let sum = 0;
+            for (const num of ary) {
+                if (typeof num !== "number") continue; // 跳過非數字元素                
+                sum += num;
+            }
+            return sum;
+        }
+        console.log(total1([10, 20, 30])); // 60
+
+        function sub(a, b = 0) {
+            return a - b;
+        }
+        console.log(sub(100, 50)); // 50
+
+        // const subArrow = (a, b = 0) => {
+        //     return a - b;
+        // };
+        const subArrow = (a, b = 0) => a - b;  // 簡寫方式，只有一個運算式時可省略 return 與大括號;
+        console.log(subArrow(200, 80)); // 120
+
+
+        // const square = (n) => {
+        //     return n ** 2
+        // };
+        const squareShort = n => n ** 2; // 簡寫方式，只有一個參數時可省略小括號
+        console.log(squareShort(3)); // 9
+
+
+        const sayHello = () => console.log("Hello!");
+        sayHello();
+
+        console.clear();
+
+        const sayYes = function (V) {
+            console.log("Yes, " + V + "!");
+        };
+        sayYes("I can do it");
+
+    </script>
+</body>
+
+</html>
