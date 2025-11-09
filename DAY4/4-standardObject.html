@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const mySet = new Set();    //創建一個空的不重複集合
+        mySet.add(1);
+        mySet.add(5);
+        mySet.add(5); // 重複的值不會被添加
+        mySet.add("some text");
+        console.log(mySet); // Set(3) { 1, 5, 'some text' }
+
+
+        //----------------排序方式----------------    **重要**
+        const dataary = [2, 4, 7, 4, 5, 1, 8, 7];
+        newSetdata = new Set(dataary); // 使用陣列來初始化 Set
+        console.log(newSetdata); // Set(5) { 1, 2, 4, 5, 7, 8 }
+        constDateAry = Array.from(newSetdata); // 將 Set 轉換回陣列
+        console.log(constDateAry); // [ 1, 2, 4, 5, 7, 8 ]
+
+        constDateAry.sort(function (a, b) { return a - b }); // 將陣列排序
+        console.log(constDateAry); // [ 1, 2, 4, 5, 7, 8 ]
+
+        console.log(Array.from(new Set([2, 4, 7, 4, 5, 1, 8, 7])).sort((a, b) => a - b)); // 一行搞定
+
+
+        //----------------Math----------------
+        //Math.random() *10 產生 0~9.99999... (不包含10) 之間的隨機小數
+        //Math.random() *30 產生 0~29.99999... (不包含30) 之間的隨機小數
+
+        const rand1 = Math.random(); // 產生 0~1 之間的隨機小數
+        const rand0to9dot9 = rand1 * 10; // 產生 0~9.999... 之間的隨機小數
+        const rand0to9 = Math.floor(rand0to9dot9); // 產生 0~9 之間的隨機整數
+        const rand0to10 = rand0to9 + 1; // 產生 1~10 之間的隨機整數
+
+        const r1to100 = Math.floor(Math.random() * 100) + 1; // 產生 1~100 之間的隨機整數
+        const r5to20 = Math.floor(Math.random() * 16) + 5; // 產生 5~20 之間的隨機整數
+        const r13to42 = Math.floor(Math.random() * 30) + 13; // 產生 13~42 之間的隨機整數
+
+        console.clear();
+
+
+        //產生 1 到 46 的不重複的6個樂透數字
+        let lotto = [];
+        const getBall = [];
+
+        for (let i = 1; i < 47; i++) {
+            lotto.push(i);
+        }
+
+        for (let j = 0; j < 6; j++) {
+            const index = Math.floor(Math.random() * lotto.length); // 從剩餘的號碼中隨機選取一個索引
+            getBall.push(lotto[index]); //選取號碼加入結果陣列
+            lotto.splice(index, 1);    //從球池中移除已選取的號碼
+            //此時lotto陣列長度會減少，因此下一次選取時不會重複選到相同的號碼
+        }
+        getBall.sort((a, b) => a - b);  // 將選取的號碼排序
+        console.log(getBall);
+        console.log(lotto);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //宿舍的公共區域
+        let name = "harvey";    // 全域變數
+
+        function testscope() {  //類似自己的小房間
+            let name = "David"; // 區域變數
+            console.log("function內的name:", name); // David
+        }
+        testscope();
+        console.log("全域的name:", name);   // harvey
+
+        //-----------------------------閉包-----------------------------
+        //閉包:讓一個內部函式可以存取外部函式的變數，即使外部函式已經執行完畢不再存在
+        function outerFunction() {
+            let message = "Hello from outer function";
+
+            function innerFunction() {
+                console.log(message); // 存取外部變數
+            }
+
+            return innerFunction;
+        }
+
+        let myFunction = outerFunction();
+
+
+        //-----------------------------this-----------------------------
+        console.log(this); // 在全域範圍內，this 指向全域物件 (在瀏覽器中是 window 物件)
+        window.console.log("Hello, World!"); // 等同於 this.console.log("Hello, World!");
+        this.console.log("Hello, World!"); // 等同於 window.console.log("Hello, World!");
+
+        console.clear();
+
+        var word = "Hello";
+
+        function showWord() {
+            console.log(this.word); // this 指向全域物件 window
+        }   
+        showWord(); // 輸出: Hello
+
+    </script>
+</body>
+
+</html>

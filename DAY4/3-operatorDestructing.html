@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const ary1 = ["A", "B", "C", "D", "E", "F"];
+        const ary2 = ary1;
+        ary2.push("G", "H");
+        console.log(ary1); // [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' ]
+        console.log(ary2); // [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' ]
+
+        console.clear();
+
+
+        const ary3 = [];
+        ary1.forEach(function (val) {
+            ary3.push(val);
+        });
+        ary3.push("I", "J");
+        console.log(ary1); // [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' ]
+        console.log(ary3); // [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' ]
+
+        console.clear();
+
+        //concat
+        const ary4 = ary1.concat(["I", "J"]); // 使用 concat 方法複製陣列
+        console.log(ary1); // [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' ]
+        console.log(ary4); // [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' ]
+
+        console.clear();
+
+        //...解構賦值
+        const ary5 = [...ary1, "I", "J"]; // 使用 展開運算子 複製陣列
+        console.log(ary1); // [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' ]
+        console.log(ary5); // [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' ]
+
+        console.clear();
+
+        //...解構賦值 合併陣列
+        const ary99 = ["I", "J"];
+        const ary6 = [...ary1, ...ary99]; // 使用 展開運算子 複製陣列
+        console.log(ary1); // [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' ]
+        console.log(ary6); // [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' ]
+
+        console.clear();
+
+
+    </script>
+</body>
+
+</html>

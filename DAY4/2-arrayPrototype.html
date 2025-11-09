@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const numbers = ["a", "b", "c", "d", "e", "f"];
+        //numbers.includes = ("c");    // true
+        //numbers.includes = ("h");    // false
+        console.log(numbers.includes("c"));
+        console.log(numbers.includes("h"));
+
+        // forEach  迭代
+        numbers.forEach(function (val) {
+            console.log(val.toUpperCase());
+        });
+
+        console.clear();
+
+        // map  映射
+        const nums = numbers.map(function (val) {
+            console.log(val.toUpperCase());
+        });
+
+        console.clear();
+
+        // filter 過濾
+        const nums1 = numbers.filter(function (val) {
+            return val > "c";
+        });
+        console.log(nums1); // [ 'd', 'e', 'f' ]
+
+        console.clear();
+
+        // find 尋找
+        const nums2 = numbers.find(function (val) {
+            return val > "c";
+        });
+        console.log(nums2); // d
+
+        console.clear();
+
+        // some  有沒有符合條件的元素
+        const nums3 = numbers.some(function (val) {
+            return val > "e";
+        });
+        console.log(nums3);
+
+        console.clear();
+
+        // every  全部符合條件的元素
+        const nums4 = numbers.every(function (val) {
+            return val > "a";
+        });
+        console.log(nums4); // false
+
+        console.clear();
+
+        // ------------------------reduce 累加器------------------------  **重要**
+        // 將陣列中的所有元素進行累加、累乘等操作，最終返回一個單一的值
+        const nums5 = [10, 20, 30, 40, 50];
+        const total = nums5.reduce(function (accumulator, currentValue) {
+            return accumulator + currentValue;  //[0, 30],[30, 30],[60, 40],[100, 50]
+        }, 0);    // 0 是初始值(開始計算)
+        console.log(total);
+
+        console.clear();
+
+    </script>
+</body>
+
+</html>
