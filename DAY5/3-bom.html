@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*if (confirm('你滿18歲了嗎？')) {
+            alert('歡迎進入網站');
+            console.log('使用者已滿18歲');
+        } else {
+            alert('未滿18歲禁止進入網站');
+            console.log('使用者未滿18歲');
+        }*/
+
+        console.log('start');
+
+        setTimeout(function () {
+            console.log('這是延遲執行的程式碼');
+        }, 3000);
+
+        console.log('end');
+
+        let count = 0;
+        const clearID = setInterval(() => {
+            count++;
+            if (count > 9) {
+                console.log('結束執行');
+                clearInterval(clearID);
+                return;
+            }
+            console.log(`計時開始! ${count}`);
+        }, 1000);
+
+    </script>
+</body>
+
+</html>

@@ -62,7 +62,31 @@
         }
         getBall.sort((a, b) => a - b);  // 將選取的號碼排序
         console.log(getBall);
-        console.log(lotto);
+        //console.log(lotto);
+
+
+        // 另一種方法
+        let lotto2 = [];
+
+        while (lotto2.length < 6) {
+            const num = Math.floor(Math.random() * 46) + 1; // 產生 1~46 之間的隨機整數
+            if (!lotto2.includes(num)) { // 檢查號碼是否已存在於結果陣列中
+                lotto2.push(num); // 如果不存在，則加入結果陣列
+            }
+        }
+        lotto2.sort((a, b) => a - b);  // 將選取的號碼排序
+        console.log(lotto2);
+
+
+        // 使用 Set 來產生不重複的樂透號碼
+        let lotto3 = new Set();
+        while (lotto3.size < 6) {
+            const num = Math.floor(Math.random() * 46) + 1; // 產生 1~46 之間的隨機整數
+            lotto3.add(num); // 使用 Set 的特性自動忽略重複的號碼
+        }
+        const sortedLotto3 = Array.from(lotto3).sort((a, b) => a - b);
+        console.log(sortedLotto3);
+
 
     </script>
 </body>
