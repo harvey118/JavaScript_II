@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* #red { */
+        /* .text.red { */
+        .text:nth-child(2) {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 網頁內容多個元素組成 -->
+    <h1 id="myTitle">主標題</h1>
+    <h1>副標題</h1>
+    <div id="container">
+        <p class="text">這是一個區塊元素</p>
+        <p class="text red" id="red">這是另一個區塊元素</p>
+
+        <button id="btn">按鈕</button>
+    </div>
+
+    <!-- 這裡會定義JavaScript的標籤 -->
+    <script>
+        // 這裡開始是 JavaScript 程式碼
+
+        //透過 id 取得元素   *目前主流*
+        const title = document.getElementById('myTitle');
+        console.log(title);
+
+        //透過標籤Tag Name名稱取得元素
+        const elH1 = document.getElementsByTagName('h1');
+        console.log(elH1);
+
+        //透過 class 名稱取得元素 
+        const textClass = document.getElementsByClassName('text');
+        console.log(textClass);
+
+        //透過 name 屬性取得元素(不常用)
+        const textName = document.getElementsByName('text');
+        console.log(textName);
+
+        //透過 CSS 選擇器取得元素   *目前主流*
+        const redEl2 = document.querySelector('#red');
+        console.log(redEl2);
+        const redEl = document.querySelector('.text.red');
+        console.log(redEl);
+        const textAll = document.querySelectorAll('.text:nth-child(2)');
+        console.log(textAll);
+
+        //透過 CSS 選擇器取得多個元素
+        const elQueryAll = document.querySelectorAll('.text');
+        console.log(elQueryAll);
+
+        console.clear();
+        //---------------------------------------------------------------------
+        const elHH1 = document.querySelector('#myTitle');
+        console.log('文字內容:', elHH1.textContent);
+        elHH1.textContent = 'Hello World';
+        console.log('修改後文字內容:', elHH1.textContent);
+
+        console.log(elHH1.innerHTML);
+        elHH1.innerHTML = 'Hello <span style="color:blue">World</span>';
+        console.log('修改後innerHTML:', elHH1.innerHTML);
+        console.log('修改後畫面呈現:', elHH1.textContent);
+
+        const elContainer = document.querySelector('#container');
+        elContainer.innerHTML += '<p>新加入的段落</p>';
+
+        console.clear();
+        //---------------------------------------------------------------------
+        console.log(elHH1.getAttribute('id'));  //捕捉id屬性上的字串
+        console.log(elHH1.getAttribute('class'));
+        console.log(elHH1.getAttribute('title'));
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="clickEvent()">點我</button>
+
+    <div onmouseover="clickEventHandle()">On Mouse Over</div>
+    <!-- <div onmouseenter="clickEventHandle()">On Mouse Enter</div> -->
+    <!-- <div onmouseleave="clickEventHandle()">On Mouse Leave</div> -->
+    <!-- <div onmouseout="clickEventHandle()">On Mouse Out</div> -->
+    <!-- <div onmousedown="clickEventHandle()">On Mouse Down</div> -->
+
+    <input typ="text" onclick="checkEventHandle('onclick')" ondblclick="checkEventHandle('ondblclick')"
+        onfocus="checkEventHandle('onfocus')" onblur="checkEventHandle('onblur')"
+        onchange="checkEventHandle('onchange', this.value)" oninput="checkEventHandle('oninput', this.value)">
+
+    <script>
+        let count = 0;
+        function clickEvent() {
+            if (count >= 2) {
+                alert('就叫你不要點了!');
+                return;
+            }
+            alert('不要點我啦');
+            count++;
+        }
+        function clickEventHandle() {
+            console.log('滑鼠事件觸發');
+        }
+
+        function checkEventHandle(eventType, value) {
+            console.log(`事件類型: ${eventType}`);
+            if (value !== undefined) {
+                console.log(`輸入框的值: ${value}`);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

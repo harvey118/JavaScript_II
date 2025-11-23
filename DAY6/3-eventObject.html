@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="btn1" onclick="clickEvent(event)">點我</div>
+    <a href="http://www.google.com">Google</a>
+    <button id="btn2">點我</button>
+
+    <script>
+        (() => {
+            const btn2 = document.getElementById("btn2");
+            btn2.addEventListener("click", (e) => {
+                alert("按鈕被點擊了");
+                console.log(e.target);
+            });
+
+            function clickEvent(e) {
+                //    console.log(e); // event 物件
+                //    console.log(e.type); // 事件類型
+                //    console.log(e.target); // 事件目標
+                //    console.log(e.target.id); // 事件目標的 id
+                const randColor = ["red", "blue", "green", "yellow", "pink", "gray"];
+                const randomIndex = Math.floor(Math.random() * randColor.length);
+
+                e.target.style.backgroundColor = randColor[randomIndex];
+            }
+
+            document.body.addEventListener("keydown", (e) => {
+                if (e.keyCode !== 123) e.preventDefault(); // 阻止預設行為
+                alert("按鈕被點擊了");
+                console.log(e.target);
+                console.log(e.key, e.code, e.keyCode);
+            });
+
+            document.addEventListener("contextmenu", function (e) {
+                e.preventDefault(); // 阻止預設行為
+                alert("你按了右鍵");
+                console.log(e.target);
+            });
+        });
+
+
+        const movebox = document.getElementById('draggable');
+
+        let isDragging = false;
+        let initMouseX, initMouseY, initElementX, initElementY;
+
+        movebox.addEventListener('mousedown', function (event) {
+            isDragging = true;
+            initMouseX = event.clientX;
+            initMouseY = event.clientY;
+            initElementX = element.offsetLeft;
+            initElementY = element.offsetTop;
+
+            // 阻止文字選取
+            event.preventDefault();
+        });
+
+        document.addEventListener('mousemove', function (event) {
+            if (!isDragging) return;
+
+            const mouseMoveX = event.clientX - initMouseX;
+            const mouseMoveY = event.clientY - initMouseY;
+
+            element.style.left = (initElementX + mouseMoveX) + 'px';
+            element.style.top = (initElementY + mouseMoveY) + 'px';
+        });
+
+        document.addEventListener('mouseup', function (event) {
+            isDragging = false;
+        });
+
+    </script>
+</body>
+
+</html>
