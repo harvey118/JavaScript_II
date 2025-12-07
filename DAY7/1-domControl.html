@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>hello world</h1>
+    <ol>
+        <li>這是第一行</li>
+        <li>這是第二行</li>
+    </ol>
+
+    <script>
+        const card = document.createElement('div');
+        card.textContent = 'This is a card';
+        //card.style.width = '100px';
+        //card.style.height = '100px';
+        //card.style.border = '1px solid #000';
+        card.style = 'color: white; background-color: teal; width: 300px; height: 100px; display: flex; justify-content: center; align-items: center; font-size: 20px; border-radius: 8px;';
+
+        document.body.append(card);
+
+        const aLink = document.createElement('a');
+        aLink.textContent = 'Go to Google';
+        aLink.href = 'https://www.google.com';
+        aLink.target = '_blank';
+
+        //document.body.append(aLink);
+        card.append(aLink);
+
+        const liEl1 = document.createElement('li');
+        liEl1.textContent = '這是第三行';
+
+        document.querySelector('ol').append(liEl1);
+
+        const liEl2 = liEl1.cloneNode(true);
+        liEl2.textContent = '這是第四行';
+        document.querySelector('ol').append(liEl2);
+
+        document.body.append(document.querySelector('ol').cloneNode(true));
+
+    </script>
+</body>
+
+</html>
