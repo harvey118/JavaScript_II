@@ -6,6 +6,11 @@ body {
 
 body > nav {
   z-index: 999;
+  transition: background-color 1s;
+
+  &.init {
+    background-color:  #0003 !important;
+  }
 }
 #lokiMenu a.nav-link,
 #lokiMenu a.navbar-brand {
@@ -168,3 +173,17 @@ section:not(#lokiSlider, .offcanvas) {
   height: 100%;
   backdrop-filter: blur(10px);
 } */
+
+/****************Cookie Agree*****/
+#lokiCookie {
+  padding: 30px 60px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1b2a4dc7;
+  z-index: 99999;
+
+  display:none;
+  /* 若畫面成功則增加以上規則 */
+}

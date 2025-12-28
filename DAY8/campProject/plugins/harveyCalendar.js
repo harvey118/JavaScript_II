@@ -60,11 +60,84 @@ async function init() {
         e.preventDefault();
         service.add();
     });
+
+    document.querySelectorAll('select').forEach(nodeSelect => {
+        nodeSelect.onchange = (e) => {
+            tableData.totalPrice = 0;
+            document.querySelectorAll('select').forEach(item => {   //4組相加的總價
+                tableData.totalPrice += parseInt(item.value) * tableData.pallet[item.name].sumPrice;
+
+                //更新tableData的四組orderCount，方便獲取該有的情況
+                tableData.pallet[item.name].orderCount = parseInt(item.value);
+            });
+
+            //更新總價
+            document.querySelector('#selectPallet h3').textContent = `
+          $${tableData.totalPrice} / ${tableData.normalCount}晚平日，${tableData.holidayCount}晚假日`;
+        }
+    });
+
+    const orderOffcanvas = new bootstrap.Offcanvas('.offcanvas'); //左側彈窗bootstrap建構函式
+    document.querySelector('#selectPallet button').onclick = (e) => {
+        let liStr = '';
+
+        for (const key in tableData.pallet) {
+            if (tableData.pallet[key].orderCount === 0) continue;
+
+            liStr += `
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold"> ${tableData.pallet[key].title} </div>
+              <div>
+                ${tableData.pallet[key].sellInfo}
+              </div>
+            </div>
+            <span class="badge bg-warning rounded-pill">x <span class="fs-6">${tableData.pallet[key].orderCount}</span>
+          </li>`;
+        }
+        document.querySelector('#orderForm ol').innerHTML = liStr;
+        document.querySelector('#orderForm .card-header.h5').innerHTML = document.querySelector('#selectPallet h3').textContent;
+        orderOffcanvas.show();
+    }
+
+    document.forms.orderForm.onsubmit = (e) => {
+        e.preventDefault();
+        const sendData = new FormData(e.target);
+
+        const selectData = [...document.querySelectorAll('li.selectHead, li.selectConnect')].map(i => i.dataset.date);
+        sendData.append('selectData', JSON.stringify(selectData));
+
+        const sellout = {};
+        Object.keys(tableData.pallet).forEach(key => {
+            sellout[key] = tableData.pallet[key].orderCount
+        })
+        sendData.append('selectData', JSON.stringify(sellout));
+
+        // for (const [key, value] of sendData) {
+        //   console.log(key, value);
+        // }
+
+
+        //驗證輸入的正確性
+        if (!e.target.checkValidity()) e.target.classList.add('was-validated');
+        else {
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                body: sendData,
+                //body: JSON.stringify({ userName: 1, password: 2 }),
+                // headers: { 'Content-Type': 'multipart/form-data' }
+            }).then(response => response.json())
+                .then(res => {
+                    if (res.id) {
+                        alert('感謝預約，您的訂單為: ' + res.id);
+                        document.location.reload();   //畫面重載
+                    }
+                });
+        }
+    }
 }
 
 init();
-
-
 
 const calenderService = () => {
     let theDay = dayjs();
