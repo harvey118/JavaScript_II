@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        function MyApp() {
+            const name = "React";
+            /* useState是React提供的Hook函式(特殊函式) 用來在函式元件中加入狀態管理的功能
+            // 狀態管理(state management) 意味著我們可以在元件中儲存和更新資料，並根據這些資料的變化來重新渲染元件
+            // 這裡我們使用陣列解構賦值的語法，將useState回傳的陣列中的兩個元素分別賦值給clicked和setClicked變數
+            // 1. clicked: 這是目前的狀態值，初始值是false(表示按鈕尚未被點擊)
+            // 2. setClicked: 這是一個用來更新狀態值的函式，我們可以呼叫這個函式並傳入新的狀態值來更新clicked的值
+            */
+            const [clicked, setClicked] = React.useState(false); // 宣告一個叫做 count 的 state 變數，初始值是 false
+
+            if (clicked) return <>
+                <button onClick={() => setClicked(false)}>Click me</button>
+                <h1>Clicked!</h1>
+            </>;
+
+            return <>
+                <button onClick={() => setClicked(true)}>Click me</button>
+                <h1>Hello, {name}!</h1>
+                {/*<h1>Hello, world2!</h1>*/}
+                <h1>Hello, world3!</h1>
+                <h1>Hello, world4!</h1>
+                <h1>Hello, world5!</h1>
+            </>;
+        }
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<MyApp />);  //元件的開頭 要以大寫為主
+
+        // 或者這樣寫
+        /*return (
+        <>
+            <h1>Hello, world1!</h1>
+            <h1>Hello, world2!</h1>
+            <h1>Hello, world3!</h1>
+        </>;
+        )*/
+
+        /*return <div>
+            <h1>Hello, world1!</h1>
+            <h1>Hello, world2!</h1>
+            <h1>Hello, world3!</h1>
+        </div>;*/
+
+        /*return (
+        <div>
+            <h1>Hello, world1!</h1>
+            <h1>Hello, world2!</h1>
+            <h1>Hello, world3!</h1>
+        </div>;
+        )*/
+
+
+    </script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      Read this page for starting a new React project with JSX:
+      https://react.dev/learn/start-a-new-react-project
+
+      Read this page for adding React with JSX to an existing project:
+      https://react.dev/learn/add-react-to-an-existing-project
+    -->
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script>
+        function MyApp() {
+            const name = "React";
+            const [clicked, setClicked] = React.useState(false);
+
+            if (clicked) {
+                return React.createElement(
+                    React.Fragment,
+                    null,
+                    React.createElement(
+                        "button",
+                        { onClick: () => setClicked(false) },
+                        "Click me"
+                    ),
+                    React.createElement("h1", null, "Clicked!")
+                );
+            }
+
+            return React.createElement(
+                React.Fragment,
+                null,
+                React.createElement(
+                    "button",
+                    { onClick: () => setClicked(true) },
+                    "Click me"
+                ),
+                React.createElement("h1", null, `Hello, ${name}!`),
+                React.createElement("h1", null, "Hello, world3!"),
+                React.createElement("h1", null, "Hello, world4!"),
+                React.createElement("h1", null, "Hello, world5!")
+            );
+        }
+
+        // const root = ReactDOM.createRoot(document.getElementById("root"));
+        ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(MyApp));
+
+    </script>
+
+    <!-- <script type="text/babel">
+
+        function MyApp() {
+            const name = "React";
+            const [clicked, setClicked] = React.useState(false); // 宣告一個叫做 count 的 state 變數，初始值是 false
+
+            if (clicked) return <>
+                <button onClick={() => setClicked(false)}>Click me</button>
+                <h1>Clicked!</h1>
+            </>;
+
+            return <>
+                <button onClick={() => setClicked(true)}>Click me</button>
+                <h1>Hello, {name}!</h1>
+                {/*<h1>Hello, world2!</h1>*/}
+                <h1>Hello, world3!</h1>
+                <h1>Hello, world4!</h1>
+                <h1>Hello, world5!</h1>
+            </>;
+        }
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<MyApp />);  //元件的開頭 要以大寫為主
+
+    </script> -->
+
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      Read this page for starting a new React project with JSX:
+      https://react.dev/learn/start-a-new-react-project
+
+      Read this page for adding React with JSX to an existing project:
+      https://react.dev/learn/add-react-to-an-existing-project
+    -->
+</body>
+
+</html>
