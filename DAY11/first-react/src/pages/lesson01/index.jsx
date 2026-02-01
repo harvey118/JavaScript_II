@@ -4,8 +4,6 @@ import viteLogo from '../public/vite.svg';
 import './lesson01.css';
 import MyGallery from '../../MyGallery';
 
-//kiro
-//Google antigravity
 const alts = {
     react: 'React logo',
     vite: 'Vite logo',
