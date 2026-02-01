@@ -24,6 +24,13 @@ const projects = [
     tech: ['React', 'API', 'Axios'],
     image: '🌤️',
   },
+  {
+    id: 4,
+    title: '線上塔羅牌占卜系統',
+    description: '提供使用者進行線上塔羅牌抽牌與解讀，支援多種牌陣與占卜主題。',
+    tech: ['React', 'Node.js', 'Express', 'RESTful API'],
+    image: '🔮',
+  },
 ];
 
 export default function ProjectList() {
@@ -34,22 +41,14 @@ export default function ProjectList() {
   return (
     <div>
       {/* 🌟 如果有成功訊息，顯示提示框 */}
-      {successMessage && (
-        <div className="success-alert">
-          ✅ {successMessage}
-        </div>
-      )}
+      {successMessage && <div className="success-alert">✅ {successMessage}</div>}
 
       <h1>我的作品集</h1>
       <p className="subtitle">點擊任一作品查看詳細資訊</p>
 
       <div className="project-grid">
         {projects.map((project) => (
-          <Link
-            key={project.id}
-            to={`/lesson02/projects/${project.id}`}
-            className="project-card"
-          >
+          <Link key={project.id} to={`/lesson02/projects/${project.id}`} className="project-card">
             <div className="project-image">{project.image}</div>
             <h3>{project.title}</h3>
             <p>{project.description}</p>

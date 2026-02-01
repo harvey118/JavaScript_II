@@ -3,6 +3,7 @@ import Layout from './layout';
 import Lesson01 from './pages/lesson01'; // 自動引入 index.jsx
 import Lesson02 from './pages/lesson02'; // 自動引入 index.jsx
 import Lesson03 from './pages/lesson03'; // 自動引入 index.jsx
+import NotFound from './pages/notfound/notfound'; // 引入 notfound 組件
 
 export default function App() {
     return (
@@ -16,6 +17,8 @@ export default function App() {
                 <Route path="lesson01" element={<Lesson01 />} />
                 <Route path="lesson02/*" element={<Lesson02 />} />
                 <Route path="lesson03" element={<Lesson03 />} />
+
+                <Route path="*" element={<NotFound />} />
             </Route>
         </Routes>
     );
